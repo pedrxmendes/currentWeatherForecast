@@ -6,11 +6,12 @@ const api = {
   base: "http://api.weatherapi.com/v1/"
 }
 function App() {
-
+  /* Hooks */
   const [query, setQuery] = useState('');
   const [cal, setCal] = useState('');
   const [weather, setWeather] = useState(null);
 
+  /* Hook da Pesquisa */
   const search = () => {
       fetch(`${api.base}history.json?key=${api.key}&q=${query}&dt=${cal}&lang=en`)
         .then(res => res.json())
@@ -18,19 +19,20 @@ function App() {
           setWeather(result);
           setQuery('');
           setCal('');
-          console.log(result);
-          console.log(cal);
         });
   }
   return (
     <div className="w-app">
       <main>
+        {/* Barra superior com os elementos */}
         <nav className="nav navbar bg-white d-flex justify-content-center w-100 shadow-lg">
           <div className="search-box px-2 d-flex container justify-content-center">
+             {/* Entrada da data */}
             <input type="date" className="search-bar mx-2 p-3 nav-item "
             onChange={a => setCal(a.target.value)} 
             value={cal}
             />
+             {/* Entrada da localidade */}
             <input type="text" className="search-bar mx-2 p-3 nav-item"
               placeholder="Search for..."
               onChange={e => setQuery(e.target.value)}
@@ -39,8 +41,10 @@ function App() {
           <button onClick={search} className="btn btn-dark mx-3 p-2 w-100 nav-item"> Search</button>
           </div>
         </nav>
+         {/* Fim da Barra superior com os elementos */}
         { weather ? (
         <div className="bg-light rounded container-sm">
+           {/* Returno dos dados da API */}
           <div className="box-info">
             <h2 className="local fs-6">{weather.location.name}, {weather.location.region}, {weather.location.country}</h2>
             <small><b>{weather.forecast.forecastday[0].date}</b></small>
@@ -53,6 +57,7 @@ function App() {
             <p>{weather.forecast.forecastday[0].day.condition.text}</p>
           </div>
           <hr></hr>
+          {/* Returno dos dados da API - Segundo bloco de informações */}
           <div className="box-info row">
             <div className="col border-bottom">
               <p>Sunrise<br></br></p>
