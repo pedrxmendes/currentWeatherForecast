@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
+body{
+  font-family: 'montseratt', sans-serif;
+}
+
+.w-app {
+  height: 130vh;
+  background: linear-gradient(227deg, #77c1ae, #68d8ea, #89666d, #8bacb4);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: clima-bg 36s ease infinite;
+    -moz-animation: clima-bg 36s ease infinite;
+    animation: clima-bg 36s ease infinite;
+}
+
+@-webkit-keyframes clima-bg {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+@-moz-keyframes clima-bg {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+@keyframes clima-bg {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+
+.search-bar {
+  height: 8vh;
+  border-style: none;
+  outline: none;
+}
+.graus{
+  font-size: 56pt;
+}
+
+.box-info {
+  border-style: initial;
+  border: 1px;
+  border-color: white;
+  margin: 2vh;
+  padding: 2vh;
+  text-align: center;
+}
+w-25{
+  width: 25% !important;
+}
